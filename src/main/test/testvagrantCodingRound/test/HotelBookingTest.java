@@ -37,7 +37,7 @@ public class HotelBookingTest {
     
     DriverManager driverManager;
 	WebDriver driver;
-	
+	//Initializes browser class and pagefactory elements
     @BeforeTest
     public void setup()
     {
@@ -52,10 +52,12 @@ public class HotelBookingTest {
         hotelLink.click();
 
         localityTextBox.sendKeys(ReadPropertyFile.get("location"));
+        //wait for auto suggest box to appear
         DynamicWait.elementToBeClickable(driver, 10, automcompleteLocation);
         automcompleteLocation.click();
         new Select(travellerSelection).selectByVisibleText(ReadPropertyFile.get("travellers"));
         searchButton.click();
+        //wait for page to be loaded and Show link to be displayed
         DynamicWait.elementToBeClickable(driver, 10, result);
         String resultString=result.getText();
         Assert.assertTrue(resultString.contains("Show all"));

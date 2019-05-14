@@ -45,6 +45,7 @@ public class FlightBookingTest {
     DriverManager driverManager;
 	WebDriver driver;
 	
+	//Initializes browser class and pagefactory elements
     @BeforeTest
     public void setup()
     {
