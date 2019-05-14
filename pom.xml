@@ -23,6 +23,13 @@
       <artifactId>testng</artifactId>
       <version>6.11</version>
       <scope>compile</scope>
-    </dependency>
+     </dependency>
+      <dependency>
+	    <groupId>io.github.bonigarcia</groupId>
+	    <artifactId>webdrivermanager</artifactId>
+	    <version>3.0.0</version>
+	   </dependency>
+
+   
   </dependencies>
 </project>
