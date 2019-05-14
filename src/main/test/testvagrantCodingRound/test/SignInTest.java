@@ -10,8 +10,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterClass;
+
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class SignInTest {
@@ -32,7 +33,7 @@ public class SignInTest {
 	WebDriver driver;
 	
 	//Initializes browser class and pagefactory elements
-  @BeforeTest
+  @BeforeClass
   public void setup()
   {
 	  driverManager=new DriverManager();
@@ -42,7 +43,7 @@ public class SignInTest {
 
     @Test
     public void shouldThrowAnErrorIfSignInDetailsAreMissing() {
-
+    	
     	driverManager.openUrl(ReadPropertyFile.get("url"));
     	
         yourTrips.click();
@@ -59,7 +60,7 @@ public class SignInTest {
         
     }
 //Close browser
-   @AfterTest
+   @AfterClass
    public void clear()
    {
 	   driverManager.quit();

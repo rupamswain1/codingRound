@@ -1,25 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="19968" started-at="2019-05-14T16:15:54Z" finished-at="2019-05-14T16:16:14Z">
+  <suite name="Test Vargant coding Round" duration-ms="181768" started-at="2019-05-14T19:14:36Z" finished-at="2019-05-14T19:17:38Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="19968" started-at="2019-05-14T16:15:54Z" finished-at="2019-05-14T16:16:14Z">
-      <class name="testvagrantCodingRound.test.SignInTest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:testvagrantCodingRound.test.SignInTest@5c7fa833]" name="setup" is-config="true" duration-ms="4997" started-at="2019-05-14T21:45:54Z" finished-at="2019-05-14T21:45:59Z">
+    <test name="Test Vargant coding Round tests" duration-ms="181768" started-at="2019-05-14T19:14:36Z" finished-at="2019-05-14T19:17:38Z">
+      <class name="testvagrantCodingRound.test.HotelBookingTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:testvagrantCodingRound.test.HotelBookingTest@14acaea5]" name="setup" is-config="true" duration-ms="7877" started-at="2019-05-15T00:44:36Z" finished-at="2019-05-15T00:44:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="shouldThrowAnErrorIfSignInDetailsAreMissing()[pri:0, instance:testvagrantCodingRound.test.SignInTest@5c7fa833]" name="shouldThrowAnErrorIfSignInDetailsAreMissing" duration-ms="14055" started-at="2019-05-14T21:45:59Z" finished-at="2019-05-14T21:46:13Z">
+        <test-method status="PASS" signature="shouldBeAbleToSearchForHotels()[pri:0, instance:testvagrantCodingRound.test.HotelBookingTest@14acaea5]" name="shouldBeAbleToSearchForHotels" duration-ms="173020" started-at="2019-05-15T00:44:44Z" finished-at="2019-05-15T00:47:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldBeAbleToSearchForHotels -->
+        <test-method status="PASS" signature="clear()[pri:0, instance:testvagrantCodingRound.test.HotelBookingTest@14acaea5]" name="clear" is-config="true" duration-ms="834" started-at="2019-05-15T00:47:37Z" finished-at="2019-05-15T00:47:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- clear -->
+      </class> <!-- testvagrantCodingRound.test.HotelBookingTest -->
+      <class name="testvagrantCodingRound.test.SignInTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:testvagrantCodingRound.test.SignInTest@224edc67]" name="setup" is-config="true" duration-ms="8882" started-at="2019-05-15T00:44:36Z" finished-at="2019-05-15T00:44:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="shouldThrowAnErrorIfSignInDetailsAreMissing()[pri:0, instance:testvagrantCodingRound.test.SignInTest@224edc67]" name="shouldThrowAnErrorIfSignInDetailsAreMissing" duration-ms="50405" started-at="2019-05-15T00:44:45Z" finished-at="2019-05-15T00:45:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- shouldThrowAnErrorIfSignInDetailsAreMissing -->
-        <test-method status="PASS" signature="clear()[pri:0, instance:testvagrantCodingRound.test.SignInTest@5c7fa833]" name="clear" is-config="true" duration-ms="876" started-at="2019-05-14T21:46:13Z" finished-at="2019-05-14T21:46:14Z">
+        <test-method status="PASS" signature="clear()[pri:0, instance:testvagrantCodingRound.test.SignInTest@224edc67]" name="clear" is-config="true" duration-ms="14538" started-at="2019-05-15T00:45:36Z" finished-at="2019-05-15T00:45:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- clear -->
       </class> <!-- testvagrantCodingRound.test.SignInTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      <class name="testvagrantCodingRound.test.FlightBookingTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:testvagrantCodingRound.test.FlightBookingTest@46d56d67]" name="setup" is-config="true" duration-ms="9273" started-at="2019-05-15T00:44:36Z" finished-at="2019-05-15T00:44:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="testThatResultsAppearForAOneWayJourney()[pri:0, instance:testvagrantCodingRound.test.FlightBookingTest@46d56d67]" name="testThatResultsAppearForAOneWayJourney" duration-ms="70215" started-at="2019-05-15T00:44:46Z" finished-at="2019-05-15T00:45:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testThatResultsAppearForAOneWayJourney -->
+        <test-method status="PASS" signature="clear()[pri:0, instance:testvagrantCodingRound.test.FlightBookingTest@46d56d67]" name="clear" is-config="true" duration-ms="3430" started-at="2019-05-15T00:45:56Z" finished-at="2019-05-15T00:45:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- clear -->
+      </class> <!-- testvagrantCodingRound.test.FlightBookingTest -->
+    </test> <!-- Test Vargant coding Round tests -->
+  </suite> <!-- Test Vargant coding Round -->
 </testng-results>

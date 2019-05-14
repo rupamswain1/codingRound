@@ -11,8 +11,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class HotelBookingTest {
@@ -38,7 +38,7 @@ public class HotelBookingTest {
     DriverManager driverManager;
 	WebDriver driver;
 	//Initializes browser class and pagefactory elements
-    @BeforeTest
+    @BeforeClass
     public void setup()
     {
   	  driverManager=new DriverManager();
@@ -65,7 +65,7 @@ public class HotelBookingTest {
     }
 
       
-    @AfterTest
+    @AfterClass
     public void clear()
     {
  	  driverManager.quit();
