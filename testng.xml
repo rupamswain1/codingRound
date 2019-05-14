@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test Vargant coding Round" parallel="classes" thread-count="1">
+	
+	<test name="Test Vargant coding Round tests" preserve-order="true">
+		<classes>
+			<class name="testvagrantCodingRound.test.SignInTest"></class>
+			<class name="testvagrantCodingRound.test.HotelBookingTest"></class>
+			<class name="testvagrantCodingRound.test.FlightBookingTest"></class>
+		</classes>
+	</test>
+
+</suite>
