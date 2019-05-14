@@ -33,7 +33,6 @@ public class SignInTest {
   @BeforeTest
   public void setup()
   {
-	  ReadPropertyFile.get("url");
 	  driverManager=new DriverManager();
 	  driver=driverManager.driver;
 	  PageFactory.initElements(driver, this);
