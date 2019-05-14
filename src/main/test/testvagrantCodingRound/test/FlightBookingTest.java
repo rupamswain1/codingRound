@@ -1,71 +1,85 @@
 package testvagrantCodingRound.test;
-import com.sun.javafx.PlatformUtil;
+
+import testvagrantCodingRound.ReadProperty.ReadPropertyFile;
+import testvagrantCodingRound.driver.DriverManager;
+import testvagrantCodingRound.wait.DynamicWait;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
-import java.util.List;
 
 public class FlightBookingTest {
 
-    WebDriver driver = new ChromeDriver();
+    @FindBy(id="OneWay")
+    WebElement oneWay;
+    
+    @FindBy(id="FromTag")
+    WebElement fromLocation;
 
+    @FindBy(id="ToTag")
+    WebElement toLocation;
+    
+    @FindBy(xpath="//ul[@id='ui-id-1']//li[1]")
+    private WebElement FromautomcompleteLocation;
+    
+    @FindBy(xpath="//ul[@id='ui-id-2']//li[1]")
+    private WebElement ToautomcompleteLocation;
+    
+    @FindBy(xpath="//*[@id='ui-datepicker-div']/div[1]/table/tbody/tr[3]/td[7]/a")
+    private WebElement datePicker;
+    
+    @FindBy(id="SearchBtn")
+    private WebElement searchButton;
+    
+    @FindBy(xpath="//div[@class='searchSummary']")
+    private WebElement searchSummary;
+    
+
+    DriverManager driverManager;
+	WebDriver driver;
+	
+    @BeforeTest
+    public void setup()
+    {
+  	  driverManager=new DriverManager();
+  	  driver=driverManager.driver;
+  	  PageFactory.initElements(driver, this);
+    }
 
     @Test
     public void testThatResultsAppearForAOneWayJourney() {
 
-        setDriverPath();
-        driver.get("https://www.cleartrip.com/");
-        waitFor(2000);
-        driver.findElement(By.id("OneWay")).click();
-
-        driver.findElement(By.id("FromTag")).clear();
-        driver.findElement(By.id("FromTag")).sendKeys("Bangalore");
-
+    	driverManager.openUrl(ReadPropertyFile.get("url"));
+        oneWay.click();
+    	fromLocation.clear();
+    	fromLocation.sendKeys(ReadPropertyFile.get("From"));
         //wait for the auto complete options to appear for the origin
+    	DynamicWait.elementToBeClickable(driver, 20, FromautomcompleteLocation);
+        FromautomcompleteLocation.click();
 
-        waitFor(2000);
-        List<WebElement> originOptions = driver.findElement(By.id("ui-id-1")).findElements(By.tagName("li"));
-        originOptions.get(0).click();
-
-        driver.findElement(By.id("toTag")).clear();
-        driver.findElement(By.id("toTag")).sendKeys("Delhi");
-
+        toLocation.clear();
+        toLocation.sendKeys(ReadPropertyFile.get("To"));
         //wait for the auto complete options to appear for the destination
-
-        waitFor(2000);
+    	DynamicWait.elementToBeClickable(driver, 20, ToautomcompleteLocation);
         //select the first item from the destination auto complete list
-        List<WebElement> destinationOptions = driver.findElement(By.id("ui-id-2")).findElements(By.tagName("li"));
-        destinationOptions.get(0).click();
-
-        driver.findElement(By.xpath("//*[@id='ui-datepicker-div']/div[1]/table/tbody/tr[3]/td[7]/a")).click();
-
+        ToautomcompleteLocation.click();
+        datePicker.click();
+        
         //all fields filled in. Now click on search
-        driver.findElement(By.id("SearchBtn")).click();
+        searchButton.click();
 
-        waitFor(5000);
         //verify that result appears for the provided journey search
         Assert.assertTrue(isElementPresent(By.className("searchSummary")));
 
-        //close the browser
-        driver.quit();
-
-    }
-
-
-    private void waitFor(int durationInMilliSeconds) {
-        try {
-            Thread.sleep(durationInMilliSeconds);
-        } catch (InterruptedException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
-    }
-
+       
+     }
 
     private boolean isElementPresent(By by) {
         try {
@@ -75,16 +89,12 @@ public class FlightBookingTest {
             return false;
         }
     }
-
-    private void setDriverPath() {
-        if (PlatformUtil.isMac()) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver");
-        }
-        if (PlatformUtil.isWindows()) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-        }
-        if (PlatformUtil.isLinux()) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver_linux");
-        }
+    
+    @AfterTest
+    public void clear()
+    {
+ 	  driverManager.quit();
     }
+
+    
 }
