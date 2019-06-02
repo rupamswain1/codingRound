@@ -10,7 +10,7 @@ import testvagrantCodingRound.ReadProperty.ReadPropertyFile;
 
 public class DriverManager {
 
-	public WebDriver driver;
+	private WebDriver driver;
 	
 	//Initializes chrome driver, can be modified in future to add fire fox, IE and Edge browser
 	public  DriverManager()
@@ -23,6 +23,12 @@ public class DriverManager {
 		openUrl(ReadPropertyFile.get("url"));
 	}
 	
+	
+	
+	public WebDriver getDriver() {
+		return driver;
+	}
+
 	//method to open url
 	public void openUrl(String url)
 	{

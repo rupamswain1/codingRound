@@ -13,12 +13,12 @@ public class ReadPropertyFile {
 		Properties property = new Properties();
 		try {
 			FileInputStream file =
-					new FileInputStream("./src//TestRunDetails.properties");
+					new FileInputStream(".//src//main//resources//TestRunDetails.properties");
 			property.load(file);
 			returnProperty=property.getProperty(PropertyName);
 			if(returnProperty==null)
 			{
-				throw new Exception("Property with name : "+PropertyName+" not found in ./src//TestRunDetails.properties Please check again");
+				throw new Exception("Property with name : "+PropertyName+" not found in .//src//main//resources//TestRunDetails.properties Please check again");
 			}
 		
 		} catch (FileNotFoundException e) {

@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import testvagrantCodingRound.Utility.DynamicWait;
+
 public class LandingPage 
 {
 	private WebDriver driver;
@@ -27,6 +29,18 @@ public class LandingPage
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void 
+	public String loginWithoutCredentials()
+	{
+		yourTrips.click();
+		//wait till sign In becomes clickable
+        DynamicWait.elementToBeClickable(driver, 10, signIn);
+        signIn.click();
+        //switch to frame
+        driver.switchTo().frame(1);
+        DynamicWait.elementToBeClickable(driver, 10, signInButton);
+        signInButton.click();
+        //Error message is fetched
+        return errorMessage.getText();
+	}
 	
 }
