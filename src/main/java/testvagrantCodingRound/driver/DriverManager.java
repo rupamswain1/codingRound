@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import testvagrantCodingRound.ReadProperty.ReadPropertyFile;
 
 public class DriverManager {
 
@@ -19,6 +20,7 @@ public class DriverManager {
 		driver.manage().window().maximize();
 		//implicit wait is made 0 where explicit wait is used
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		openUrl(ReadPropertyFile.get("url"));
 	}
 	
 	//method to open url

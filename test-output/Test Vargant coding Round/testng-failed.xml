@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="3" guice-stage="DEVELOPMENT" name="Failed suite [Test Vargant coding Round]" parallel="classes">
+<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [Test Vargant coding Round]" parallel="classes">
   <test name="Test Vargant coding Round tests(failed)" parallel="classes">
     <classes>
-      <class name="testvagrantCodingRound.test.FlightBookingTest">
+      <class name="testvagrantCodingRound.test.HotelBookingTest">
         <methods>
-          <include name="clear"/>
-          <include name="setup"/>
-          <include name="testThatResultsAppearForAOneWayJourney"/>
-        </methods>
-      </class> <!-- testvagrantCodingRound.test.FlightBookingTest -->
-      <class name="testvagrantCodingRound.test.SignInTest">
-        <methods>
-          <include name="shouldThrowAnErrorIfSignInDetailsAreMissing"/>
+          <include name="shouldBeAbleToSearchForHotels"/>
           <include name="clear"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- testvagrantCodingRound.test.SignInTest -->
+      </class> <!-- testvagrantCodingRound.test.HotelBookingTest -->
     </classes>
   </test> <!-- Test Vargant coding Round tests(failed) -->
 </suite> <!-- Failed suite [Test Vargant coding Round] -->
