@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="20350" started-at="2019-06-02T14:53:21Z" finished-at="2019-06-02T14:53:41Z">
+  <suite name="Default suite" duration-ms="29675" started-at="2019-06-02T18:08:39Z" finished-at="2019-06-02T18:09:09Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="20350" started-at="2019-06-02T14:53:21Z" finished-at="2019-06-02T14:53:41Z">
-      <class name="testvagrantCodingRound.test.SignInTest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:testvagrantCodingRound.test.SignInTest@5c7fa833]" name="setup" is-config="true" duration-ms="13138" started-at="2019-06-02T20:23:21Z" finished-at="2019-06-02T20:23:34Z">
+    <test name="Default test" duration-ms="29675" started-at="2019-06-02T18:08:39Z" finished-at="2019-06-02T18:09:09Z">
+      <class name="testvagrantCodingRound.test.FlightBookingTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:testvagrantCodingRound.test.FlightBookingTest@5c7fa833]" name="setup" is-config="true" duration-ms="17658" started-at="2019-06-02T23:38:39Z" finished-at="2019-06-02T23:38:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="shouldThrowAnErrorIfSignInDetailsAreMissing()[pri:0, instance:testvagrantCodingRound.test.SignInTest@5c7fa833]" name="shouldThrowAnErrorIfSignInDetailsAreMissing" duration-ms="6160" started-at="2019-06-02T20:23:34Z" finished-at="2019-06-02T20:23:40Z">
+        <test-method status="PASS" signature="testThatResultsAppearForAOneWayJourney()[pri:0, instance:testvagrantCodingRound.test.FlightBookingTest@5c7fa833]" name="testThatResultsAppearForAOneWayJourney" duration-ms="11080" started-at="2019-06-02T23:38:57Z" finished-at="2019-06-02T23:39:08Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- shouldThrowAnErrorIfSignInDetailsAreMissing -->
-        <test-method status="PASS" signature="clear()[pri:0, instance:testvagrantCodingRound.test.SignInTest@5c7fa833]" name="clear" is-config="true" duration-ms="996" started-at="2019-06-02T20:23:40Z" finished-at="2019-06-02T20:23:41Z">
+        </test-method> <!-- testThatResultsAppearForAOneWayJourney -->
+        <test-method status="PASS" signature="clear()[pri:0, instance:testvagrantCodingRound.test.FlightBookingTest@5c7fa833]" name="clear" is-config="true" duration-ms="886" started-at="2019-06-02T23:39:08Z" finished-at="2019-06-02T23:39:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- clear -->
-      </class> <!-- testvagrantCodingRound.test.SignInTest -->
+      </class> <!-- testvagrantCodingRound.test.FlightBookingTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

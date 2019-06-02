@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import testvagrantCodingRound.ReadProperty.ReadPropertyFile;
+import testvagrantCodingRound.Utility.DatePicker;
 import testvagrantCodingRound.Utility.DynamicWait;
 
 public class LandingPage 
@@ -23,6 +25,30 @@ public class LandingPage
 	@FindBy(id="errors1")
 	private WebElement errorMessage;
 	
+
+    @FindBy(id="OneWay")
+    WebElement oneWay;
+    
+    @FindBy(id="FromTag")
+    WebElement fromLocation;
+
+    @FindBy(id="ToTag")
+    WebElement toLocation;
+    
+    @FindBy(xpath="//ul[@id='ui-id-1']//li[1]")
+    private WebElement FromautomcompleteLocation;
+    
+    @FindBy(xpath="//ul[@id='ui-id-2']//li[1]")
+    private WebElement ToautomcompleteLocation;
+    
+    @FindBy(xpath="//*[@id='ui-datepicker-div']/div[1]/table/tbody/tr[3]/td[7]/a")
+    private WebElement datePicker;
+    
+    @FindBy(id="SearchBtn")
+    private WebElement searchButton;
+    
+    private String dateXpath="//td[contains(@data-month,'%month%')]//child::a[contains(text(),'%date%')]";
+	
 	public LandingPage(WebDriver driver)
 	{
 		this.driver=driver;
@@ -37,10 +63,32 @@ public class LandingPage
         signIn.click();
         //switch to frame
         driver.switchTo().frame(1);
-        DynamicWait.elementToBeClickable(driver, 10, signInButton);
+        DynamicWait.elementToBeClickable(driver, 20, signInButton);
         signInButton.click();
         //Error message is fetched
         return errorMessage.getText();
+	}
+	
+	public FlightSearchResult searchFlight()
+	{
+    	oneWay.click();
+    	fromLocation.clear();
+    	fromLocation.sendKeys(ReadPropertyFile.get("From"));
+        //wait for the auto complete options to appear for the origin
+    	DynamicWait.elementToBeClickable(driver, 20, FromautomcompleteLocation);
+        FromautomcompleteLocation.click();
+
+        toLocation.clear();
+        toLocation.sendKeys(ReadPropertyFile.get("To"));
+        //wait for the auto complete options to appear for the destination
+    	DynamicWait.elementToBeClickable(driver, 20, ToautomcompleteLocation);
+        //select the first item from the destination auto complete list
+        ToautomcompleteLocation.click();
+        DatePicker.getWebelement(driver, ReadPropertyFile.get("FlightDate"), dateXpath).click();        
+        //all fields filled in. Now click on search
+        searchButton.click();
+        return new FlightSearchResult(driver);
+
 	}
 	
 }

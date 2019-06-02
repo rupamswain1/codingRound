@@ -2,6 +2,8 @@ package testvagrantCodingRound.test;
 
 import testvagrantCodingRound.ReadProperty.ReadPropertyFile;
 import testvagrantCodingRound.Utility.DynamicWait;
+import testvagrantCodingRound.WebPages.FlightSearchResult;
+import testvagrantCodingRound.WebPages.LandingPage;
 import testvagrantCodingRound.driver.DriverManager;
 
 import org.openqa.selenium.By;
@@ -17,31 +19,7 @@ import org.testng.annotations.Test;
 
 public class FlightBookingTest {
 
-    @FindBy(id="OneWay")
-    WebElement oneWay;
-    
-    @FindBy(id="FromTag")
-    WebElement fromLocation;
-
-    @FindBy(id="ToTag")
-    WebElement toLocation;
-    
-    @FindBy(xpath="//ul[@id='ui-id-1']//li[1]")
-    private WebElement FromautomcompleteLocation;
-    
-    @FindBy(xpath="//ul[@id='ui-id-2']//li[1]")
-    private WebElement ToautomcompleteLocation;
-    
-    @FindBy(xpath="//*[@id='ui-datepicker-div']/div[1]/table/tbody/tr[3]/td[7]/a")
-    private WebElement datePicker;
-    
-    @FindBy(id="SearchBtn")
-    private WebElement searchButton;
-    
-    @FindBy(xpath="//div[@class='searchSummary']")
-    private WebElement searchSummary;
-    
-
+   
     DriverManager driverManager;
 	WebDriver driver;
 	
@@ -50,47 +28,23 @@ public class FlightBookingTest {
     public void setup()
     {
   	  driverManager=new DriverManager();
-  	  driver=driverManager.driver;
-  	  PageFactory.initElements(driver, this);
+  	  this.driver=driverManager.getDriver();
+  	  PageFactory.initElements(this.driver, this);
     }
 
     @Test
     public void testThatResultsAppearForAOneWayJourney() {
 
-    	driverManager.openUrl(ReadPropertyFile.get("url"));
-        oneWay.click();
-    	fromLocation.clear();
-    	fromLocation.sendKeys(ReadPropertyFile.get("From"));
-        //wait for the auto complete options to appear for the origin
-    	DynamicWait.elementToBeClickable(driver, 20, FromautomcompleteLocation);
-        FromautomcompleteLocation.click();
-
-        toLocation.clear();
-        toLocation.sendKeys(ReadPropertyFile.get("To"));
-        //wait for the auto complete options to appear for the destination
-    	DynamicWait.elementToBeClickable(driver, 20, ToautomcompleteLocation);
-        //select the first item from the destination auto complete list
-        ToautomcompleteLocation.click();
-        datePicker.click();
-        
-        //all fields filled in. Now click on search
-        searchButton.click();
+    	LandingPage landingPage=new LandingPage(driver);
+    	FlightSearchResult flightResult=landingPage.searchFlight();
 
         //verify that result appears for the provided journey search
-        Assert.assertTrue(isElementPresent(By.className("searchSummary")));
+        Assert.assertTrue(flightResult.getSearchSummary());
 
        
      }
 
-    private boolean isElementPresent(By by) {
-        try {
-            driver.findElement(by);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
-    
+   
     @AfterClass
     public void clear()
     {

@@ -1,5 +1,6 @@
 package testvagrantCodingRound.test;
 
+import testvagrantCodingRound.ReadProperty.ReadPropertyFile;
 import testvagrantCodingRound.WebPages.LandingPage;
 import testvagrantCodingRound.driver.DriverManager;
 
@@ -29,8 +30,7 @@ public class SignInTest {
     	
     	LandingPage landingPage=new LandingPage(this.driver);
     	String errorMessage=landingPage.loginWithoutCredentials();
-    	System.out.println(errorMessage);
-        Assert.assertTrue(errorMessage.contains("There were errors in your submission"));
+    	Assert.assertTrue(errorMessage.contains(ReadPropertyFile.get("ErrorMessage")));
         
     }
 //Close browser
