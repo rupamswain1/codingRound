@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import testvagrantCodingRound.ReadProperty.ReadPropertyFile;
 import testvagrantCodingRound.Utility.DatePicker;
@@ -47,6 +48,21 @@ public class LandingPage
     @FindBy(id="SearchBtn")
     private WebElement searchButton;
     
+    @FindBy(xpath = "//li[@class=\"hotelApp \"]/child::a[node()]")
+    private WebElement hotelLink;
+    
+    @FindBy(xpath="//ul[@id='ui-id-1']//li[2]")
+    private WebElement automcompleteLocation;
+
+    @FindBy(id = "Tags")
+    private WebElement localityTextBox;
+
+    @FindBy(id = "SearchHotelsButton")
+    private WebElement searchHotelButton;
+
+    @FindBy(id = "travellersOnhome")
+    private WebElement travellerSelection;
+    
     private String dateXpath="//td[contains(@data-month,'%month%')]//child::a[contains(text(),'%date%')]";
 	
 	public LandingPage(WebDriver driver)
@@ -89,6 +105,19 @@ public class LandingPage
         searchButton.click();
         return new FlightSearchResult(driver);
 
+	}
+	
+	public HotelSearchResult bookHotel()
+	{
+		 hotelLink.click();
+
+	        localityTextBox.sendKeys(ReadPropertyFile.get("location"));
+	        //wait for auto suggest box to appear
+	        DynamicWait.elementToBeClickable(driver, 10, automcompleteLocation);
+	        automcompleteLocation.click();
+	        new Select(travellerSelection).selectByVisibleText(ReadPropertyFile.get("travellers"));
+	        searchHotelButton.click();
+	        return new HotelSearchResult(driver);
 	}
 	
 }

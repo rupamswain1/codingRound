@@ -12,7 +12,6 @@ public class DatePicker
 		String[] dateData=date.split("/");
 		xpath=xpath.replaceAll("%date%", dateData[0]);
 		xpath=xpath.replaceAll("%month%", Integer.parseInt(dateData[1])-1+"");
-		System.out.println(xpath);
 		return driver.findElement(By.xpath(xpath));
 	}
 }
