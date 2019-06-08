@@ -1,5 +1,7 @@
 package testvagrantCodingRound.WebPages;
 
+import java.util.Map;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -85,37 +87,38 @@ public class LandingPage
         return errorMessage.getText();
 	}
 	
-	public FlightSearchResult searchFlight()
+	public FlightSearchResult searchFlight(Map<String, String> data)
 	{
     	oneWay.click();
     	fromLocation.clear();
-    	fromLocation.sendKeys(ReadPropertyFile.get("From"));
+    	fromLocation.sendKeys(data.get("FROM"));
         //wait for the auto complete options to appear for the origin
     	DynamicWait.elementToBeClickable(driver, 20, FromautomcompleteLocation);
         FromautomcompleteLocation.click();
 
         toLocation.clear();
-        toLocation.sendKeys(ReadPropertyFile.get("To"));
+        toLocation.sendKeys(data.get("TO"));
         //wait for the auto complete options to appear for the destination
     	DynamicWait.elementToBeClickable(driver, 20, ToautomcompleteLocation);
         //select the first item from the destination auto complete list
         ToautomcompleteLocation.click();
-        DatePicker.getWebelement(driver, ReadPropertyFile.get("FlightDate"), dateXpath).click();        
+       
+        DatePicker.getWebelement(driver, data.get("FLIGHT DATE"), dateXpath).click();        
         //all fields filled in. Now click on search
         searchButton.click();
         return new FlightSearchResult(driver);
 
 	}
 	
-	public HotelSearchResult bookHotel()
+	public HotelSearchResult bookHotel(Map<String, String> data)
 	{
 		 hotelLink.click();
 
-	        localityTextBox.sendKeys(ReadPropertyFile.get("location"));
+	        localityTextBox.sendKeys(data.get("LOCATION"));
 	        //wait for auto suggest box to appear
 	        DynamicWait.elementToBeClickable(driver, 10, automcompleteLocation);
 	        automcompleteLocation.click();
-	        new Select(travellerSelection).selectByVisibleText(ReadPropertyFile.get("travellers"));
+	        new Select(travellerSelection).selectByVisibleText(data.get("TRAVELLERS"));
 	        searchHotelButton.click();
 	        return new HotelSearchResult(driver);
 	}

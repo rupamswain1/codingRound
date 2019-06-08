@@ -21,15 +21,15 @@ import testvagrantCodingRound.ReadProperty.ReadPropertyFile;
 
 public class ReadXlsx {
 
-	static Workbook workbook;
-	static Sheet sheet;
+	 Workbook workbook;
+	 Sheet sheet;
 	//Reads Excel file, and return a list of maps, maps are generated for each row
 	//Test case is provided as input
-	public static List<Map<String, String>> getData(String TestCase)
+	public List<Map<String, String>> getData(String TestCase)
 	{
 		List<Map<String, String>> data=new ArrayList<>();
 		
-		File file=new File(ReadPropertyFile.get("inputData"));
+		File file=new File(ReadPropertyFile.get("TestDataExcel"));
 		try {
 			FileInputStream fis=new FileInputStream(file);
 			workbook=new XSSFWorkbook(fis);

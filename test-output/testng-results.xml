@@ -1,25 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="60109" started-at="2019-06-04T02:35:07Z" finished-at="2019-06-04T02:36:07Z">
+  <suite name="Test Vargant coding Round" duration-ms="50544" started-at="2019-06-08T19:54:20Z" finished-at="2019-06-08T19:55:10Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="60109" started-at="2019-06-04T02:35:07Z" finished-at="2019-06-04T02:36:07Z">
+    <test name="Test Vargant coding Round tests" duration-ms="50544" started-at="2019-06-08T19:54:20Z" finished-at="2019-06-08T19:55:10Z">
       <class name="testvagrantCodingRound.test.HotelBookingTest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:testvagrantCodingRound.test.HotelBookingTest@5c7fa833]" name="setup" is-config="true" duration-ms="20012" started-at="2019-06-04T08:05:07Z" finished-at="2019-06-04T08:05:27Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:testvagrantCodingRound.test.HotelBookingTest@523884b2]" name="setup" is-config="true" duration-ms="28724" started-at="2019-06-09T01:24:22Z" finished-at="2019-06-09T01:24:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="shouldBeAbleToSearchForHotels()[pri:0, instance:testvagrantCodingRound.test.HotelBookingTest@5c7fa833]" name="shouldBeAbleToSearchForHotels" duration-ms="36257" started-at="2019-06-04T08:05:27Z" finished-at="2019-06-04T08:06:03Z">
+        <test-method status="PASS" signature="shouldBeAbleToSearchForHotels(java.lang.Object)[pri:0, instance:testvagrantCodingRound.test.HotelBookingTest@523884b2]" name="shouldBeAbleToSearchForHotels" duration-ms="18413" started-at="2019-06-09T01:24:51Z" data-provider="provideData" finished-at="2019-06-09T01:25:09Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{LOCATION=Indiranagar, Bangalore, TRAVELLERS=1 room, 2 adults}]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- shouldBeAbleToSearchForHotels -->
-        <test-method status="PASS" signature="clear()[pri:0, instance:testvagrantCodingRound.test.HotelBookingTest@5c7fa833]" name="clear" is-config="true" duration-ms="3794" started-at="2019-06-04T08:06:03Z" finished-at="2019-06-04T08:06:07Z">
+        <test-method status="PASS" signature="clear()[pri:0, instance:testvagrantCodingRound.test.HotelBookingTest@523884b2]" name="clear" is-config="true" duration-ms="1149" started-at="2019-06-09T01:25:09Z" finished-at="2019-06-09T01:25:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- clear -->
       </class> <!-- testvagrantCodingRound.test.HotelBookingTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      <class name="testvagrantCodingRound.test.SignInTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:testvagrantCodingRound.test.SignInTest@4501b7af]" name="setup" is-config="true" duration-ms="18019" started-at="2019-06-09T01:24:20Z" finished-at="2019-06-09T01:24:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="shouldThrowAnErrorIfSignInDetailsAreMissing()[pri:0, instance:testvagrantCodingRound.test.SignInTest@4501b7af]" name="shouldThrowAnErrorIfSignInDetailsAreMissing" duration-ms="15906" started-at="2019-06-09T01:24:38Z" finished-at="2019-06-09T01:24:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldThrowAnErrorIfSignInDetailsAreMissing -->
+        <test-method status="PASS" signature="clear()[pri:0, instance:testvagrantCodingRound.test.SignInTest@4501b7af]" name="clear" is-config="true" duration-ms="7615" started-at="2019-06-09T01:24:54Z" finished-at="2019-06-09T01:25:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- clear -->
+      </class> <!-- testvagrantCodingRound.test.SignInTest -->
+      <class name="testvagrantCodingRound.test.FlightBookingTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:testvagrantCodingRound.test.FlightBookingTest@5b275dab]" name="setup" is-config="true" duration-ms="23209" started-at="2019-06-09T01:24:22Z" finished-at="2019-06-09T01:24:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="testThatResultsAppearForAOneWayJourney(java.lang.Object)[pri:0, instance:testvagrantCodingRound.test.FlightBookingTest@5b275dab]" name="testThatResultsAppearForAOneWayJourney" duration-ms="18859" started-at="2019-06-09T01:24:45Z" data-provider="provideData" finished-at="2019-06-09T01:25:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{TRIP=OneWay, FROM=Bangalore, TO=Delhi, FLIGHT DATE=22/6/2019}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testThatResultsAppearForAOneWayJourney -->
+        <test-method status="PASS" signature="clear()[pri:0, instance:testvagrantCodingRound.test.FlightBookingTest@5b275dab]" name="clear" is-config="true" duration-ms="1501" started-at="2019-06-09T01:25:04Z" finished-at="2019-06-09T01:25:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- clear -->
+      </class> <!-- testvagrantCodingRound.test.FlightBookingTest -->
+    </test> <!-- Test Vargant coding Round tests -->
+  </suite> <!-- Test Vargant coding Round -->
 </testng-results>

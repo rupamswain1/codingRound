@@ -1,8 +1,11 @@
 package testvagrantCodingRound.test;
 
 import testvagrantCodingRound.ReadProperty.ReadPropertyFile;
+import testvagrantCodingRound.Utility.ReadXlsx;
 import testvagrantCodingRound.WebPages.LandingPage;
 import testvagrantCodingRound.driver.DriverManager;
+
+import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -30,7 +33,8 @@ public class SignInTest {
     	
     	LandingPage landingPage=new LandingPage(this.driver);
     	String errorMessage=landingPage.loginWithoutCredentials();
-    	Assert.assertTrue(errorMessage.contains(ReadPropertyFile.get("ErrorMessage")));
+    	Map<String, String> errorDetails=new ReadXlsx().getData("SignInTest").get(0);
+    	Assert.assertTrue(errorMessage.contains(errorDetails.get("ERROR MESSAGE")));
         
     }
 //Close browser
