@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="3" guice-stage="DEVELOPMENT" name="Failed suite [Test Vargant coding Round]" parallel="classes">
-  <test name="Test Vargant coding Round tests(failed)" parallel="classes">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
     <classes>
       <class name="testvagrantCodingRound.test.SignInTest">
         <methods>
@@ -11,5 +11,5 @@
         </methods>
       </class> <!-- testvagrantCodingRound.test.SignInTest -->
     </classes>
-  </test> <!-- Test Vargant coding Round tests(failed) -->
-</suite> <!-- Failed suite [Test Vargant coding Round] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

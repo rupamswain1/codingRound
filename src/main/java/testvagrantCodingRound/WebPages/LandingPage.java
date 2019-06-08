@@ -80,7 +80,9 @@ public class LandingPage
         DynamicWait.elementToBeClickable(driver, 10, signIn);
         signIn.click();
         //switch to frame
-        driver.switchTo().frame(1);
+      
+        DynamicWait.waitForFrameAndSwitch(driver, 20, 1);
+       // driver.switchTo().frame(1);
         DynamicWait.elementToBeClickable(driver, 20, signInButton);
         signInButton.click();
         //Error message is fetched

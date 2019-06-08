@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="testvagrantCodingRound.test.FlightBookingTest">
+      <class name="testvagrantCodingRound.test.SignInTest">
         <methods>
+          <include name="shouldThrowAnErrorIfSignInDetailsAreMissing"/>
           <include name="clear"/>
           <include name="setup"/>
-          <include name="testThatResultsAppearForAOneWayJourney" invocation-numbers="0"/>
         </methods>
-      </class> <!-- testvagrantCodingRound.test.FlightBookingTest -->
+      </class> <!-- testvagrantCodingRound.test.SignInTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

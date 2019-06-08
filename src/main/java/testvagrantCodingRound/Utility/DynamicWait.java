@@ -18,4 +18,12 @@ public class DynamicWait {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
+	public static void waitForFrameAndSwitch(WebDriver driver, int timeInSecond, int frameNumber)
+	{
+		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+		WebDriverWait wait = new WebDriverWait(driver, timeInSecond);
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frameNumber));
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
+
 }
